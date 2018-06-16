@@ -42,31 +42,31 @@ const LegendTable = () => {
   }
 
   const balls = [
-    <div css={legendBallCellStyle}>
+    <div css={legendBallCellStyle} key={1}>
       <h4 style={{ margin: 0 }}>Icon</h4>
     </div>,
-    <div css={legendBallCellStyle}>
+    <div css={legendBallCellStyle} key={2}>
       <EvaluationCell num="3" style={legendBallStyle} />
     </div>,
-    <div css={legendBallCellStyle}>
+    <div css={legendBallCellStyle} key={3}>
       <EvaluationCell num="2" style={legendBallStyle} />
     </div>,
-    <div css={legendBallCellStyle}>
+    <div css={legendBallCellStyle} key={4}>
       <EvaluationCell num="1" style={legendBallStyle} />
     </div>,
-    <div css={legendBallCellStyle}>
+    <div css={legendBallCellStyle} key={5}>
       <EvaluationCell num="0" style={legendBallStyle} />
     </div>,
   ]
 
   const legendText = [
-    <div css={legendExplanationCellStyle}>
+    <div css={legendExplanationCellStyle} key={11}>
       <h5 style={{ margin: 0 }}>Feature Availability</h5>
     </div>,
-    <div css={legendExplanationCellStyle}>Out of the box</div>,
-    <div css={legendExplanationCellStyle}>Plugins available</div>,
-    <div css={legendExplanationCellStyle}>Needs customization</div>,
-    <div css={legendExplanationCellStyle}>Not possible</div>,
+    <div css={legendExplanationCellStyle} key={12}>Out of the box</div>,
+    <div css={legendExplanationCellStyle} key={13}>Plugins available</div>,
+    <div css={legendExplanationCellStyle} key={14}>Needs customization</div>,
+    <div css={legendExplanationCellStyle} key={15}>Not possible</div>,
   ]
 
   return (
@@ -157,7 +157,7 @@ const FeaturesHeader = () => (
   </div>
 )
 
-const getFeaturesData = function(data) {
+const getFeaturesData = function (data) {
   const sections = (data || [])
     .map((row, i) => (row.node.Category ? i : -1))
     .filter(rowNum => rowNum !== -1)
