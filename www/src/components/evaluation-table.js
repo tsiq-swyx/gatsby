@@ -28,6 +28,7 @@ class EvaluationTable extends Component {
               background: colors.ui.bright,
             },
           }}
+          key={'span_key_because_react_needs_this'}
         >
           {` `}
           {`${words[words.length - 1]} `}
@@ -111,8 +112,8 @@ class EvaluationTable extends Component {
         {flatten(
           sections.map((section, s) =>
             [
-              <SectionTitle text={sectionHeaders[s]} />,
-              <SectionHeaderTop />,
+              <SectionTitle text={sectionHeaders[s]} key={`title-${s}`} />,
+              <SectionHeaderTop key={`header-${s}`} />,
             ].concat(
               flatten(
                 section.map((row, i) =>
@@ -120,6 +121,7 @@ class EvaluationTable extends Component {
                     <SectionHeaderBottom
                       display={row.node.Subcategory}
                       category={row.node.Subcategory}
+                      key={`bottom-${s}-${i}`}
                     />,
                     <div
                       dangerouslySetInnerHTML={{
@@ -127,8 +129,9 @@ class EvaluationTable extends Component {
                           .split(` `)
                           .join(`-`)}"></span>`,
                       }}
+                      key={`bottom-div-${s}-${i}`}
                     />,
-                    <tr>
+                    <tr key={`bottom-tr-${s}-${i}`}>
                       {headers.map((header, j) => (
                         <td
                           key={j}
@@ -162,6 +165,7 @@ class EvaluationTable extends Component {
                       style={{
                         display: showTooltip(s, i) ? `table-row` : `none`,
                       }}
+                      key={`bottom-tr2-${s}-${i}`}
                     >
                       <td
                         css={{
